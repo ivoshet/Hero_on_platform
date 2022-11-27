@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 1965148485}
   - component: {fileID: 1965148488}
   - component: {fileID: 1965148487}
+  - component: {fileID: 1965148489}
   m_Layer: 0
   m_Name: alienBlue_stand
   m_TagString: Untagged
@@ -393,7 +394,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965148484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.41, z: 0}
+  m_LocalPosition: {x: 0.11, y: 3.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -435,4 +436,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &1965148489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965148484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb75bc17704a0e1ca662d930b0f307a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
