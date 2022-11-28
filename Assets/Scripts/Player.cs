@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     Animator anim;
     int curHp;
     int maxHp = 3;
+    bool isHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +75,41 @@ public class Player : MonoBehaviour
     public void RecountHp(int deltaHp)
     {
         curHp = curHp + deltaHp;
-        print(curHp);
+        if(deltaHp < 0)
+        {
+            StopCoroutine(onHit());
+            isHit = true;
+            StartCoroutine(onHit());
+        }
+        if (curHp <= 0)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        }
+    }
+
+    IEnumerator onHit()
+    {
+        if (isHit)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f,
+                GetComponent<SpriteRenderer>().color.g - 0.04f,
+                GetComponent<SpriteRenderer>().color.b - 0.04f);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f,
+               GetComponent<SpriteRenderer>().color.g + 0.04f,
+               GetComponent<SpriteRenderer>().color.b + 0.04f);
+        }
+        if (GetComponent<SpriteRenderer>().color.g == 1)
+        {
+            StopCoroutine(onHit());
+        }
+        if (GetComponent<SpriteRenderer>().color.g <= 0)
+        {
+            isHit = false;
+        }
+        yield return new WaitForSeconds(0.02f);
+        StartCoroutine(onHit());
     }
 }
