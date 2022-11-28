@@ -10,12 +10,15 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     bool isGrounded;
     Animator anim;
+    int curHp;
+    int maxHp = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        curHp = maxHp;
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
-            Debug.Log("jump");
+            //Debug.Log("jump");
         }
     }
     
@@ -66,5 +69,11 @@ public class Player : MonoBehaviour
         {
             anim.SetInteger("State", 3);
         }
+    }
+
+    public void RecountHp(int deltaHp)
+    {
+        curHp = curHp + deltaHp;
+        print(curHp);
     }
 }
