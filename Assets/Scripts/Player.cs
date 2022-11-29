@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
         StartCoroutine(onHit());
     }
 
+    //for call method from other class 
     void Lose()
     {
         main.GetComponent<Main>().Lose();
