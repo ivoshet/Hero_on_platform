@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     int curHp;
     int maxHp = 3;
     bool isHit = false;
+    public Main main;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,8 @@ public class Player : MonoBehaviour
         if (curHp <= 0)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
+            Invoke("Lose", 2f);
+
         }
     }
 
@@ -97,9 +100,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = new Color(1f,
-               GetComponent<SpriteRenderer>().color.g + 0.04f,
-               GetComponent<SpriteRenderer>().color.b + 0.04f);
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.04f, GetComponent<SpriteRenderer>().color.b + 0.04f);
         }
         if (GetComponent<SpriteRenderer>().color.g == 1)
         {
@@ -111,5 +112,10 @@ public class Player : MonoBehaviour
         }
         yield return new WaitForSeconds(0.02f);
         StartCoroutine(onHit());
+    }
+
+    void Lose()
+    {
+        main.GetComponent<Main>().Lose();
     }
 }

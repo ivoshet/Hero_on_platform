@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//the script for level reloading
 
 public class Main : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Lose()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //for load current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
