@@ -33,8 +33,6 @@ public class airPatrol : MonoBehaviour
                 StartCoroutine(Waiting());
             }
         }
-        //set movie to point
-
     }
 
     IEnumerator Waiting()
@@ -43,9 +41,6 @@ public class airPatrol : MonoBehaviour
         canGo = true;
     }
 
-    //метод для деактивации объекта 
-    private void PlayerDisabled() {
-        gameObject.SetActive(false);
-    }
+
 
 }

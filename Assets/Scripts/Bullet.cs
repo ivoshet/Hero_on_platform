@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("baam!");
         StopCoroutine(SetDisabled());
         gameObject.SetActive(false);
     }
