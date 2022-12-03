@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     int maxHp = 3;
     bool isHit = false;
     public Main main;
+    public Transform groundLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,12 @@ public class Player : MonoBehaviour
             {
                 anim.SetInteger("State", 2);
             }
+        }
+        if ( groundLevel.position.y >= transform.position.y)
+        { 
+            print("ooops!");
+            //PlayerDisabled();
+            Lose();
         }
     }
 
@@ -119,4 +126,11 @@ public class Player : MonoBehaviour
     {
         main.GetComponent<Main>().Lose();
     }
+
+    //the method for deactivate object
+    //private void PlayerDisabled()
+    //{
+    //    gameObject.SetActive(false);
+    //}
+
 }

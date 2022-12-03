@@ -42,4 +42,10 @@ public class airPatrol : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         canGo = true;
     }
+
+    //метод для деактивации объекта 
+    private void PlayerDisabled() {
+        gameObject.SetActive(false);
+    }
+
 }
