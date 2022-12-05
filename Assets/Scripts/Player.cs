@@ -107,7 +107,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.04f, GetComponent<SpriteRenderer>().color.b + 0.04f);
+            GetComponent<SpriteRenderer>().color = new Color(1f, 
+                GetComponent<SpriteRenderer>().color.g + 0.04f,
+                GetComponent<SpriteRenderer>().color.b + 0.04f);
         }
         if (GetComponent<SpriteRenderer>().color.g == 1)
         {
